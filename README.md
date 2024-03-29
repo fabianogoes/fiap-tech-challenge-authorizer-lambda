@@ -17,6 +17,7 @@ Features auxiliares para a [API Tech Challenge](https://github.com/fabianogoes/f
   - [Deployments](#deployments)
   - [Para criar a lambda por `awscli`](#para-criar-a-lambda-por-awscli)
   - [Para atualizar a lambda por `awscli`](#para-atualizar-a-lambda-por-awscli)
+  - [Important Refereces](#important-refereces)
 
 
 ## Features in Lambdas
@@ -81,3 +82,12 @@ aws lambda create-function --function-name tech-challenge-authorizer-lambda --ru
 ```shell
 aws lambda update-function-code --function-name tech-challenge-authorizer-lambda --zip-file fileb://./lambda_function.zip
 ```
+
+## Important Refereces
+
+- [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
+- [AWS Lambda CLI](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-awscli.html)
+- [AWS Lambda Python](https://docs.aws.amazon.com/lambda/latest/dg/python-handler.html)
+- [AWS API Gateway JWT Authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)
+- [JWT Instruduction](https://jwt.io/introduction/)
