@@ -14,6 +14,9 @@ Features auxiliares para a [API Tech Challenge](https://github.com/fabianogoes/f
     - [4. Instalar Dependencias](#4-instalar-dependencias)
     - [Para desativar o virtualenv](#para-desativar-o-virtualenv)
     - [Gerar o `zip` para deploy na `aws`](#gerar-o-zip-para-deploy-na-aws)
+  - [Deployments](#deployments)
+  - [Para criar a lambda por `awscli`](#para-criar-a-lambda-por-awscli)
+  - [Para atualizar a lambda por `awscli`](#para-atualizar-a-lambda-por-awscli)
 
 
 ## Features in Lambdas
@@ -65,3 +68,16 @@ deactivate
 zip -r lambda_function.zip dotenv/ jwt/ .env lambda_function.py
 ```
 
+## Deployments
+
+## Para criar a lambda por `awscli`
+
+```shell
+aws lambda create-function --function-name tech-challenge-authorizer-lambda --runtime python3.8 --region us-east-1 --role arn:aws:iam::637423526753:role/LabRole --handler lambda_function.lambda_handler --zip-file fileb://./lambda_function.zip
+```
+
+## Para atualizar a lambda por `awscli`
+
+```shell
+aws lambda update-function-code --function-name tech-challenge-authorizer-lambda --zip-file fileb://./lambda_function.zip
+```
