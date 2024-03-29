@@ -1,11 +1,7 @@
 # Authorizer - Lambda Function da API Tech Challenge
 
-![Auth](./.utils/assets/Fluxo-de-Autenticacao-e-Autorizacao-com-JWT.png)
-
-Features auxiliares para a [API Tech Challenge](https://github.com/fabianogoes/fiap-tech-challenge)
-
 - [Authorizer - Lambda Function da API Tech Challenge](#authorizer---lambda-function-da-api-tech-challenge)
-  - [Features in Lambdas](#features-in-lambdas)
+  - [Relationship](#relationship)
   - [Setup Development](#setup-development)
     - [1. Install Python3, example ubuntu:](#1-install-python3-example-ubuntu)
     - [2. Instalar virtualenv, exemple ubuntu:](#2-instalar-virtualenv-exemple-ubuntu)
@@ -19,12 +15,15 @@ Features auxiliares para a [API Tech Challenge](https://github.com/fabianogoes/f
   - [Para atualizar a lambda por `awscli`](#para-atualizar-a-lambda-por-awscli)
   - [Important References](#important-references)
 
+## Relationship
 
-## Features in Lambdas
+![Auth](./.utils/assets/Fluxo-de-Autenticacao-e-Autorizacao-com-JWT.png)
 
-- [ ] Authenticator - Recebe CPF e senha do cliente e retorna um `access token`.
-- [ ] Authorizer - Usada no API Gatewate para autenticar todas as rotas.
-
+- [API Tech Challenge](https://github.com/fabianogoes/fiap-tech-challenge)
+- [Users - Lambda Functions da API Tech Challenge](https://github.com/fabianogoes/fiap-tech-challenge-users-lambda)
+- [Authenticator - Lambda Functions da API Tech Challenge](https://github.com/fabianogoes/fiap-tech-challenge-authenticator-lambda)
+- [Authorizer - Lambda Functions da API Tech Challenge](https://github.com/fabianogoes/fiap-tech-challenge-authorizer-lambda)
+  
 ## Setup Development 
 
 ### 1. Install Python3, example ubuntu: 
