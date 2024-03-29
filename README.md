@@ -1,6 +1,6 @@
 # Authorizer - Lambda Function da API Tech Challenge
 
-[![deploy-py-lambda](https://github.com/fabianogoes/fiap-tech-challenge-authorizer-lambda/actions/workflows/deploy-lambda.yml/badge.svg)](https://github.com/fabianogoes/fiap-tech-challenge-authorizer-lambda/actions/workflows/deploy-lambda.yml)
+[![CI/CD](https://github.com/fabianogoes/fiap-tech-challenge-authorizer-lambda/actions/workflows/deploy-lambda.yml/badge.svg)](https://github.com/fabianogoes/fiap-tech-challenge-authorizer-lambda/actions/workflows/deploy-lambda.yml)
 
 - [Authorizer - Lambda Function da API Tech Challenge](#authorizer---lambda-function-da-api-tech-challenge)
   - [Relationship](#relationship)
