@@ -138,8 +138,11 @@ compile_commands.json
 Makefile
 Makefile.in
 *.cmake
-*.txt
 *.xml
 *.json
 *.zip
 **/*.Identifier
+
+boto3/
+dotenv/
+jwt/
