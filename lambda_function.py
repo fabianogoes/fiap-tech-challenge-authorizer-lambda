@@ -24,7 +24,7 @@ def lambda_handler(event, context):
     else:
         auth = 'Deny'
         
-    authResponse = { "principalId": user, "policyDocument": { "Version": "2012-10-17", "Statement": [{"Action": "execute-api:Invoke", "Resource": ["arn:aws:execute-api:us-east-1:637423526753:6zjg700oqb/*/*/*"], "Effect": auth}] }}
+    authResponse = { "principalId": user, "policyDocument": { "Version": "2012-10-17", "Statement": [{"Action": "execute-api:Invoke", "Resource": ["arn:aws:execute-api:us-east-1:758397526889:0no1axjaq1/*/*/*"], "Effect": auth}] }}
     return authResponse
 
 
