@@ -67,6 +67,33 @@ aws lambda create-function --function-name fiap-tech-challenge-authorizer-lambda
 aws lambda update-function-code --function-name fiap-tech-challenge-authorizer-lambda --zip-file fileb://./lambda_function.zip
 ```
 
+## Authorizer Lambda Function Response
+
+```json
+// Resource:
+// arn:aws:execute-api:{REGION}:{ACCOUNT_ID}:{FIRST-API-STAGE-INVOKE-URL}/*/*/*
+// STAGE-INVOKE-URL = https://6zjg700oqb.execute-api.us-east-1.amazonaws.com/test
+// Default endpoint Api = https://6zjg700oqb.execute-api.us-east-1.amazonaws.com
+// FIRST-API-STAGE-INVOKE-URL = 6zjg700oqb
+// Effect: Allow | Deny
+
+{
+    "principalId": "abc123",
+    "policyDocument": {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Action": "execute-api:Invoke",
+                "Resource": [
+                    "arn:aws:execute-api:us-east-1:637423526753:6zjg700oqb/*/*/*"
+                ],
+                "Effect": auth
+            }
+        ]
+    }
+}
+```
+
 ## Important References
 
 - [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
