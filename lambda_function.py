@@ -5,9 +5,11 @@ from jwt.exceptions import ExpiredSignatureError
 
 load_dotenv()
 SECRET = os.getenv("SECRET")
+VERSION = "2024-04-28-2"
 
 def lambda_handler(event, context):
     print("*********** the event is: *************")
+    print(VERSION)
     print(event)
 
     token = event['authorizationToken']    
