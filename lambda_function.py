@@ -5,7 +5,7 @@ from jwt.exceptions import ExpiredSignatureError
 
 load_dotenv()
 SECRET = os.getenv("SECRET")
-VERSION = "2024-04-30-1"
+VERSION = "2024.5.1.1"
 EFFECT_ALLOW = "Allow"
 EFFECT_DENY = "Deny"
 
@@ -134,6 +134,7 @@ def generateDeny(principalId, resource):
 def is_valid(token):
     try:
         jwt.get_unverified_header(token)
+        print(f"Invalid Token={token}")
         return True
     except ExpiredSignatureError as error:
         return False
