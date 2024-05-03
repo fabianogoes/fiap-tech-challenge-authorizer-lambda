@@ -29,20 +29,16 @@ def lambda_handler(event, context):
             email = token_decoded["email"]
             cpf = token_decoded["sub"]
             principalId = cpf
-            
             print(f"cpf={cpf}, user={user}, email={email}")
-            # return {"isAuthorized": True}
-            
+
             return generateResponse(user, EFFECT_ALLOW, event["methodArn"])
         except ExpiredSignatureError:
-            print("Expired Token")
-            # return {"isAuthorized": False}
+            print(f"Expired Token={token}")
             return generateResponse(user, EFFECT_DENY, event["methodArn"])
-        except:
-            print("Validation token error")
+        except Exception as error:
+            print(f"Validation token={token} error = {error}")
             return generateResponse(user, EFFECT_DENY, event["methodArn"])
     else:
-        # return {"isAuthorized": False}
         return generateResponse(user, EFFECT_DENY, event["methodArn"])
            
     
