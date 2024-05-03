@@ -5,7 +5,7 @@ from jwt.exceptions import ExpiredSignatureError
 
 load_dotenv()
 SECRET = os.getenv("SECRET")
-VERSION = "2024.5.1.1"
+VERSION = "2024.5.2.1"
 EFFECT_ALLOW = "Allow"
 EFFECT_DENY = "Deny"
 
@@ -18,6 +18,7 @@ def lambda_handler(event, context):
     if token is None:
         return generateResponse(user, EFFECT_DENY, event["methodArn"])
     
+    user = None
     if is_valid(token):
         try:
             print(f"SECRET={SECRET}")
@@ -39,7 +40,6 @@ def lambda_handler(event, context):
             return generateResponse(user, EFFECT_DENY, event["methodArn"])
         except:
             print("Validation token error")
-            # return {"isAuthorized": False}
             return generateResponse(user, EFFECT_DENY, event["methodArn"])
     else:
         # return {"isAuthorized": False}
@@ -98,30 +98,6 @@ def generateResponse(user, effect, methodArn):
     
     return response
 
-def generatePolicy(principalId, effect, resource):
-    authResponse = {}
-    authResponse['principalId'] = principalId
-    if (effect and resource):
-        policyDocument = {}
-        policyDocument['Version'] = '2012-10-17'
-        policyDocument['Statement'] = []
-        statementOne = {}
-        statementOne['Action'] = 'execute-api:Invoke'
-        statementOne['Effect'] = effect
-        statementOne['Resource'] = resource
-        policyDocument['Statement'] = [statementOne]
-        authResponse['policyDocument'] = policyDocument
-
-    authResponse['context'] = {
-        "stringKey": "stringval",
-        "numberKey": 123,
-        "booleanKey": True
-    }
-
-    authResponse_JSON = json.dumps(authResponse)
-
-    return authResponse_JSON
-
 
 def generateAllow(principalId, resource):
     return generatePolicy(principalId, 'Allow', resource)
@@ -134,7 +110,10 @@ def generateDeny(principalId, resource):
 def is_valid(token):
     try:
         jwt.get_unverified_header(token)
-        print(f"Invalid Token={token}")
         return True
     except ExpiredSignatureError as error:
+        print(f"Invalid Token={token} error={error}")
+        return False
+    except Exception as error:
+        print(f"Invalid Token={token} error={error}")
         return False
