@@ -5,7 +5,7 @@ from jwt.exceptions import ExpiredSignatureError
 
 load_dotenv()
 SECRET = os.getenv("SECRET")
-VERSION = "2024.5.8.1"
+VERSION = "2024.5.8.2"
 EFFECT_ALLOW = "Allow"
 EFFECT_DENY = "Deny"
 
